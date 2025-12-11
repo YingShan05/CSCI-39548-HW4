@@ -39,11 +39,10 @@
   .map-wrapper iframe{border-radius:8px}
   
   /* responsive */
-  @media (max-width: 900px){
-    .menu-grid{grid-template-columns:repeat(2,1fr)}
-  }
+
   @media (max-width: 640px){
     .menu-grid{grid-template-columns:1fr}
+    .card-image{height: 265px;}
     .hero{height:220px}
     .nav{display:none; position:absolute; top:64px; right:0; background:#fff; flex-direction:column; padding:0.5rem; margin:0.5rem; border-radius:8px}
     .nav.open{display:flex}

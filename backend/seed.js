@@ -3,7 +3,6 @@ require("dotenv").config();
 
 const MenuItem = require("./models/MenuItem");
 
-// Use environment variable
 const MONGO_URI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/restaurantdb";
 
 const items = [

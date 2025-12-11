@@ -17,13 +17,11 @@ function App() {
   useEffect(() => {
     const onHash = () => setRoute(window.location.hash.replace('#','') || 'home');
     window.addEventListener('hashchange', onHash);
-    // load menu
     fetchMenu().then(setMenu).catch(err => {
       console.error('fetchMenu error', err);
       setMenu([]);
     });
 
-    // init sessionId in localStorage
     let sessionId = localStorage.getItem('sessionId');
     if (!sessionId) {
       sessionId = 's_' + Math.random().toString(36).slice(2,10);
@@ -36,9 +34,7 @@ function App() {
           setCart({ sessionId, items: [] });
           return;
         }
-        // normalize items: item -> string id, ensure image, name, price, qty
         const normalized = (c.items || []).map(i => {
-          // if i.item is object (populated), try to get image/name/price from it
           const iid = (i.item && i.item._id) ? String(i.item._id) : String(i.item);
           const image = i.image || (i.item && i.item.image) || '/hero.jpg';
           const name = i.name || (i.item && i.item.name) || 'Item';
@@ -55,7 +51,6 @@ function App() {
     return () => window.removeEventListener('hashchange', onHash);
   }, []);
 
-  // helper to persist cart to backend and state
   async function persistCart(newItems) {
     const newCart = { sessionId: cart.sessionId, items: newItems.map(i => ({
       item: i.item,
@@ -73,7 +68,6 @@ function App() {
   }
 
   async function addToCart(menuItem) {
-    // find existing by id (string)
     const id = String(menuItem._id);
     const existing = cart.items.find(i => String(i.item) === id);
     let newItems;
@@ -142,7 +136,6 @@ function App() {
     };
     try {
       const savedOrder = await placeOrder(order);
-      // clear cart on success
       await persistCart([]);
       alert(`Order placed! Order id: ${savedOrder._id || '(no id returned)'}`);
       window.location.hash = '#home';

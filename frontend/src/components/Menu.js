@@ -9,7 +9,6 @@ export default function Menu({ items = [], onAdd }) {
         {items.map((item) => (
           <div className="card" key={item._id}>
             
-            {/* IMAGE SECTION */}
             <div className="card-image">
               <img
                 src={item.image ? item.image : "/placeholder-food.jpg"}
@@ -17,7 +16,6 @@ export default function Menu({ items = [], onAdd }) {
               />
             </div>
 
-            {/* TEXT SECTION */}
             <div className="card-body">
               <h3>{item.name}</h3>
               <div className="card-footer">

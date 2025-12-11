@@ -11,7 +11,7 @@ export default function Header({ onNavigate }) {
       <div className="container header-inner">
         <div className="brand" onClick={()=>navTo('home')}>
           <img src="/logo.png" alt="logo" className="logo" />
-          <span className="brand-name">My Restaurant</span>
+          <span className="brand-name">Burger Queen</span>
         </div>
         <nav className={`nav ${open ? 'open' : ''}`}>
           <a onClick={()=>navTo('home')}>Home</a>

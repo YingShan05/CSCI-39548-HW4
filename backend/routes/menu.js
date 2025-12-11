@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const MenuItem = require('../models/MenuItem');
 
-// GET /api/menu
 router.get('/', async (req, res) => {
   try {
     const items = await MenuItem.find();
@@ -12,7 +11,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// POST /api/menu (optional admin create endpoint)
 router.post('/', async (req, res) => {
   try {
     const m = new MenuItem(req.body);
