@@ -1,0 +1,111 @@
+
+ *{box-sizing:border-box}
+  body{font-family:Inter, system-ui, Arial, sans-serif; margin:0; color:#2c3e50; line-height:1.5}
+  .container{max-width:1000px; margin:0 auto; padding:1rem}
+  
+  .site-header{background:#F9E076; border-bottom:1px solid #eee; position:sticky; top:0; z-index:50}
+  .header-inner{display:flex; align-items:center; justify-content:space-between; padding:0.5rem 1rem}
+  .brand{display:flex; align-items:center; gap:0.75rem; cursor:pointer}
+  .logo{height:48px; width:48px; object-fit:cover; border-radius:6px}
+  .brand-name{font-weight:700; font-size:1.1rem}
+  
+  .nav{display:flex; gap:1rem; align-items:center}
+  .nav a{cursor:pointer; text-decoration:none; color:inherit; padding:0.5rem}
+  .hamburger{display:none; font-size:1.5rem; background:none; border:none}
+  
+  .hero{height:570px; background-size:cover; background-position:center; display:flex; align-items:center; color:white}
+  .hero-inner{padding:8rem;}
+  .hero h1{margin:0; font-size:clamp(2rem,4vw,3.2rem)}
+  .hero p{margin:0.5rem 0 0}
+  
+  .menu-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1rem}
+  .card{background:white; border-radius:10px; border: solid 1.5px #FDE992; overflow:hidden; display:flex; flex-direction:column}
+  .card-image img{width:100%; height:265px; object-fit:cover}
+  .card-body{padding:0.75rem; display:flex; flex-direction:column; gap:0.5rem; flex:1}
+  .card-footer{display:flex; justify-content:space-between; align-items:center}
+  .card-footer button{background:#f3da6c; color:white; border:none; padding:0.5rem 0.8rem; border-radius:6px; cursor:pointer}
+  
+  .cart-table{width:100%; border-collapse:collapse; margin-bottom:1rem}
+  .cart-table th, .cart-table td{border-bottom:1px solid #FDE992; padding:0.5rem; text-align:left}
+  .cart-table input{width:60px}
+  
+  .order-form input, .order-form textarea, .contact-form input, .contact-form textarea{width:100%; padding:0.5rem; margin-bottom:0.5rem; border:1px solid #ddd; border-radius:6px}
+  .order-form button, .contact-form button{background:#e4be16; color:white; border:none; padding:0.6rem 1rem; border-radius:6px; cursor:pointer}
+  
+  .site-footer{background:#f9f2d5; padding:1rem 0; border-top:1px solid #eee}
+  .footer-inner{display:flex; justify-content:space-between; gap:1rem; align-items:center}
+  
+  /* contact map wrapper */
+  .map-wrapper iframe{border-radius:8px}
+  
+  /* responsive */
+  @media (max-width: 900px){
+    .menu-grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width: 640px){
+    .menu-grid{grid-template-columns:1fr}
+    .hero{height:220px}
+    .nav{display:none; position:absolute; top:64px; right:0; background:#fff; flex-direction:column; padding:0.5rem; margin:0.5rem; border-radius:8px}
+    .nav.open{display:flex}
+    .hamburger{display:block}
+    .header-inner{padding:0.5rem}
+    .footer-inner{flex-direction:column; text-align:center}
+    .container{padding:0.75rem}
+  }
+  
+
+  .btn-checkout {
+    background: #e2c12e;
+    color: white;
+    border: none;
+    padding: 0.5rem 0.9rem;
+    border-radius: 6px;
+  }
+  .btn-remove {
+    background: white;
+    color: #e4be16;
+    border: 1px solid #e2c12e;
+    padding: 0.45rem 0.8rem;
+    border-radius: 6px;
+  }
+  .qty-btn {
+    width:30px;
+    height:30px;
+    border-radius:6px;
+    border:1px solid #f3da6c;
+    background:white;
+    cursor:pointer;
+    font-size:16px;
+    line-height:1;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .cart-actions-row .btn-primary { /* checkout on right */
+    min-width: 120px;
+  }
+
+  .image-gallery {
+    margin-top: 2rem;
+  }
+  
+  .image-gallery h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .gallery-column {
+    display: flex;
+    flex-direction: column;  /* <-- IMPORTANT: ensures one per line */
+    gap: 1.5rem;
+  }
+  
+  .gallery-item img {
+    width: 100%;
+    max-width: 800px; /* optional */
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+    border: 2px solid #f3da6c;
+    object-fit: cover;
+  }
